@@ -1,0 +1,69 @@
+{
+  "slug": "valj-ratt-champagneglas",
+  "title": "Vilket champagneglas ger bäst smakupplevelse?",
+  "description": "Flöjt, coupe eller tulpanformat vinglas? Lär dig hur glasets form påverkar doft, bubblor och upplevelsen av champagne vid bordet.",
+  "category": "GUIDE / SERVERING",
+  "author": "Maison Éclat",
+  "date": "20 oktober 2026",
+  "image": {
+    "src": "images/artikel-valj-ratt-champagneglas.webp",
+    "alt": "Maison Éclat Blanc de Blancs i en mörk champagneflaska med vit etikett, fotograferad i varm studiomiljö."
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Ett bra champagneglas handlar om mer än utseende. Glasets öppning, höjd och kupans form påverkar hur vinet möter luften och hur lätt det är att uppfatta doften. Det betyder att samma champagne kan upplevas lite olika beroende på vilket glas du väljer."
+    },
+    {
+      "type": "heading",
+      "text": "Tulpanformat glas – en elegant kompromiss"
+    },
+    {
+      "type": "paragraph",
+      "text": "För många champagner är ett tulpanformat glas ett fint val. Kupans rundning ger dofterna utrymme att samlas medan en något smalare öppning leder aromerna mot näsan. Det blir också enklare att följa vinets utveckling när det får några minuter i glaset."
+    },
+    {
+      "type": "paragraph",
+      "text": "Välj hellre ett glas som inte är för smalt. Lämna gott om plats ovanför vätskan, så att du kan rotera glaset försiktigt och verkligen känna doften."
+    },
+    {
+      "type": "heading",
+      "text": "Flöjtglaset – när bubblorna får ta plats"
+    },
+    {
+      "type": "paragraph",
+      "text": "Det klassiska höga flöjtglaset är förknippat med fest och visar de stigande bubblorna på ett vackert sätt. Den smala formen begränsar samtidigt utrymmet för doft. Det gör flöjten till ett mer visuellt än aromfokuserat alternativ."
+    },
+    {
+      "type": "heading",
+      "text": "Coupeglaset – retro, men öppet"
+    },
+    {
+      "type": "paragraph",
+      "text": "Den breda, grunda kupan ger ett teatraliskt uttryck, men den stora ytan gör att kolsyran kan lämna drycken snabbare. Coupeglaset är därför ofta roligare som festdetalj än som ett förstahandsval vid en noggrann provning."
+    },
+    {
+      "type": "heading",
+      "text": "Tre enkla serveringstips"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Använd ett rent, luktfritt glas. Rester av diskmedel och dofter påverkar upplevelsen.",
+        "Häll hellre lite mindre åt gången så att champagnen inte blir varm i glaset.",
+        "Prova gärna samma champagne i två olika glas. Det är ett enkelt sätt att lära känna dina egna preferenser."
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "Den bästa kupan är den som gör att du vill dofta en gång till."
+    },
+    {
+      "type": "paragraph",
+      "text": "Vill du utforska aromerna ordentligt? Börja med ett tulpanformat champagneglas eller ett inte alltför stort vitvinsglas. Det viktigaste är inte vad glaset kostar, utan hur det hjälper dig att uppleva drycken."
+    }
+  ],
+  "sources": [
+    "Redaktionell guide sammanställd med AI-stöd. Faktakontrollera glas- och serveringsråd mot fackkällor innan eventuell offentlig publicering."
+  ]
+}

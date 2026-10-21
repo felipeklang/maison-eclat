@@ -1,0 +1,66 @@
+{
+  "slug": "upptack-champagnens-aromer",
+  "title": "Upptäck champagnens aromer – från citrus till brioche",
+  "description": "En introduktion till hur du doftar på champagne och känner igen frukt, blommor, rostade toner och den komplexitet som utvecklas över tid.",
+  "category": "SMAKSKOLA / AROMER",
+  "author": "Maison Éclat",
+  "date": "20 oktober 2026",
+  "image": {
+    "src": "images/artikel-upptack-champagnens-aromer.webp",
+    "alt": "Maison Éclat Brut Réserve med guldetikett och gyllene halsfolie mot varm, ljus bakgrund."
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Det finns få drycker där doften kan förändras lika tydligt under en enda stund vid bordet. En champagne som först doftar av citron och äpple kan efter några minuter öppna upp sig med toner av bröd, mandel eller honung. Att lära sig känna igen aromerna är därför ett roligt sätt att upptäcka fler nyanser."
+    },
+    {
+      "type": "heading",
+      "text": "Börja med de friska tonerna"
+    },
+    {
+      "type": "paragraph",
+      "text": "När du doftar första gången kan du leta efter fruktiga associationer. Grönt äpple, päron, citrus, vit persika och ibland blommor är vanliga sätt att beskriva den friska sidan av mousserande vin. Det är associationer, inte ingredienser som tillsatts."
+    },
+    {
+      "type": "heading",
+      "text": "Varifrån kommer brioche och rostade toner?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Många champagner får en del av sin karaktär genom att de ligger i kontakt med jästfällningen efter den andra jäsningen på flaska. Under lagringen kan arombilden utvecklas mot bröddeg, kex, brioche eller rostat bröd. Hur tydliga tonerna är varierar mellan olika viner."
+    },
+    {
+      "type": "heading",
+      "text": "Så gör du en egen mini-provning"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Häll upp en liten mängd champagne i ett rent glas med gott om utrymme för doften.",
+        "Dofta först utan att snurra glaset. Sätt ord på den första associationen du får.",
+        "Låt glaset stå en minut, dofta igen och jämför.",
+        "Ta en liten klunk. Lägg märke till syra, mousse, fyllighet och eftersmak."
+      ]
+    },
+    {
+      "type": "subheading",
+      "text": "Det finns inga fel associationer"
+    },
+    {
+      "type": "paragraph",
+      "text": "Doftminnet är personligt. Någon tänker på citronskal, en annan på nybakat bröd eller blommor i en trädgård. Poängen är inte att gissa samma ord som en expert, utan att bygga upp din egen smakbank."
+    },
+    {
+      "type": "heading",
+      "text": "Skriv ner tre ord"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ett enkelt knep är att alltid skriva tre ord efter en provning: en doft, en känsla i munnen och ett ord om avslutet. Efter några flaskor blir det mycket lättare att förstå vilka stilar du tycker om."
+    }
+  ],
+  "sources": [
+    "Redaktionell introduktion skriven med AI-stöd. Beskrivningar av lagring och aromer behöver faktagranskas mot relevanta vinutbildningskällor före publicering."
+  ]
+}

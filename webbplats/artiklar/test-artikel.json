@@ -1,0 +1,42 @@
+{
+  "slug": "test-artikel",
+  "title": "Testartikel – så fungerar vår JSON-mall",
+  "description": "Den här testartikeln används för att kontrollera att artikel.html och artikel.js hämtar innehåll ur en separat JSON-fil.",
+  "category": "TEST / TEKNIK",
+  "author": "Maison Éclat",
+  "date": "20 oktober 2026",
+  "image": {
+    "src": "images/brut-reserve.webp",
+    "alt": "Maison Éclat Brut Réserve, en champagneflaska med guldgul etikett"
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Detta är ett tekniskt test av artikelmallen. Artikeln hämtas från webbplats/artiklar/test-artikel.json."
+    },
+    {
+      "type": "heading",
+      "text": "Test av mellanrubrik"
+    },
+    {
+      "type": "paragraph",
+      "text": "När du läser denna text har JavaScript använt fetch() för att hämta JSON och skapa HTML-element."
+    },
+    {
+      "type": "subheading",
+      "text": "Test av listor"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Data ligger i en separat JSON-fil.",
+        "Bilder ligger lokalt i images-mappen."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Prova att öppna artikel.html?id=test-artikel med Live Server."
+    }
+  ],
+  "sources": []
+}

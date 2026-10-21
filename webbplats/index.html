@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO: sidans titel och beskrivning visas i sökresultat och webbläsarflikar. -->
+  <title>Maison Éclat | Champagne, smakguider och inspiration</title>
+  <meta name="description" content="Upptäck Maison Éclats fiktiva champagnekollektion och vår journal om servering, smak och matmatchning. Inspiration för minnesvärda tillfällen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Hoppa till innehåll</a>
+  <div class="topline">MAISON ÉCLAT <span>—</span> ETT DIGITALT CHAMPAGNEKONCEPT</div>
+  <!-- Semantisk header och nav används på både start- och artikelsidor. -->
+  <header class="site-header">
+    <div class="shell nav-shell">
+      <a class="brand" href="index.html" aria-label="Maison Éclat – till startsidan">MAISON <span>ÉCLAT</span><small>CHAMPAGNE CONCEPT</small></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Öppna menyn" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
+      <nav id="mainNav" class="main-nav" aria-label="Huvudnavigation">
+        <a href="#collection">Kollektionen</a>
+        <a href="#savoir-faire">Vår filosofi</a>
+        <a href="#journal">Journal</a>
+        <a href="#newsletter" class="nav-cta">Bli inspirerad <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> L'ART DE VIVRE · ÉDITION 2026</p>
+          <h1 id="hero-title">Every moment<br>deserves <em>éclat.</em></h1>
+          <p class="hero-intro">En hyllning till de gyllene ögonblicken. Utforska en champagnevärld där tidlös elegans möter nyfikenhet, smaker och firande.</p>
+          <div class="hero-actions">
+            <a class="btn btn-dark" href="#collection">Upptäck kollektionen <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#journal">Läs vår journal <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-note"><span class="hero-note-number">01 / 05</span><span id="heroVariantName">BRUT RÉSERVE</span><span class="line-long"></span></div>
+        </div>
+        <div class="hero-visual">
+          <!-- Bilden ligger lokalt i images och får en förklarande alt-text. -->
+          <img id="heroBottle" src="images/brut-reserve.webp" alt="Maison Éclat Brut Réserve, mörk champagneflaska med guldetikett och guldfolie" width="1024" height="1536" fetchpriority="high">
+          <div class="hero-visual-caption"><span>THE ÉCLAT COLLECTION</span><span>FIVE EXPRESSIONS OF ELEGANCE</span></div>
+        </div>
+      </div>
+      <div class="hero-selector shell" aria-label="Välj flaska att visa på startsidan">
+        <span class="selector-label">VÄLJ DIN CUVÉE</span>
+        <div class="selector-buttons">
+          <button type="button" class="selector active" aria-pressed="true" data-bottle="brut">01 <span>BRUT</span></button>
+          <button type="button" class="selector" aria-pressed="false" data-bottle="blanc">02 <span>BLANC</span></button>
+          <button type="button" class="selector" aria-pressed="false" data-bottle="rose">03 <span>ROSÉ</span></button>
+          <button type="button" class="selector" aria-pressed="false" data-bottle="verte">04 <span>VERTE</span></button>
+          <button type="button" class="selector" aria-pressed="false" data-bottle="turquoise">05 <span>TURQUOISE</span></button>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee-strip" aria-hidden="true"><div>CHAMPAGNE IS AN ART OF LIVING <span>✺</span> FRENCH INSPIRATION <span>✺</span> CELEBRATE THE EXTRAORDINARY <span>✺</span></div></div>
+
+    <section class="section collection-section" id="collection" aria-labelledby="collection-title">
+      <div class="shell">
+        <div class="section-heading"><div><p class="eyebrow">01 — LA COLLECTION</p><h2 id="collection-title">Five expressions.<br><em>One signature.</em></h2></div><p>Från gyllene klassiker till djärvare uttryck. Fem fiktiva cuvéer, formgivna för att förmedla en känsla av fransk lyx.</p></div>
+        <div class="product-grid">
+          <article class="product-card"><div class="product-media"><span class="product-index">N° 01</span><img src="images/brut-reserve.webp" alt="Brut Réserve med gulorange etikett och guldfolie" loading="lazy"><span class="product-tag">SIGNATURE</span></div><div class="product-info"><div><p>MAISON ÉCLAT</p><h3>Brut Réserve</h3><span>Friskt · Citrus · Brioche</span></div><button type="button" class="product-action" data-preview="brut" aria-label="Visa Brut Réserve överst på sidan">↗</button></div></article>
+          <article class="product-card"><div class="product-media"><span class="product-index">N° 02</span><img src="images/blanc-de-blancs.webp" alt="Blanc de Blancs med vit etikett och gyllene detaljer" loading="lazy"></div><div class="product-info"><div><p>MAISON ÉCLAT</p><h3>Blanc de Blancs</h3><span>Elegant · Mineraliskt · Citron</span></div><button type="button" class="product-action" data-preview="blanc" aria-label="Visa Blanc de Blancs överst på sidan">↗</button></div></article>
+          <article class="product-card"><div class="product-media"><span class="product-index">N° 03</span><img src="images/rose-elegance.webp" alt="Rosé Élégance med roséfärgad etikett och varmrosa champagne" loading="lazy"></div><div class="product-info"><div><p>MAISON ÉCLAT</p><h3>Rosé Élégance</h3><span>Bärigt · Livligt · Finess</span></div><button type="button" class="product-action" data-preview="rose" aria-label="Visa Rosé Élégance överst på sidan">↗</button></div></article>
+          <article class="product-card"><div class="product-media"><span class="product-index">N° 04</span><img src="images/reserve-verte.webp" alt="Réserve Verte med djupgrön etikett och guldfärgad text" loading="lazy"></div><div class="product-info"><div><p>MAISON ÉCLAT</p><h3>Réserve Verte</h3><span>Strukturerat · Nötigt · Rostat</span></div><button type="button" class="product-action" data-preview="verte" aria-label="Visa Réserve Verte överst på sidan">↗</button></div></article>
+          <article class="product-card"><div class="product-media"><span class="product-index">N° 05</span><img src="images/cuvee-turquoise.webp" alt="Cuvée Turquoise med turkos etikett och guldfärgade detaljer" loading="lazy"></div><div class="product-info"><div><p>MAISON ÉCLAT</p><h3>Cuvée Turquoise</h3><span>Blommigt · Fräscht · Precist</span></div><button type="button" class="product-action" data-preview="turquoise" aria-label="Visa Cuvée Turquoise överst på sidan">↗</button></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="philosophy" id="savoir-faire" aria-labelledby="philosophy-title">
+      <div class="shell philosophy-grid"><div class="philosophy-monogram" aria-hidden="true"><span>M</span><span>É</span><div class="sunburst">✦</div></div><div class="philosophy-copy"><p class="eyebrow eyebrow-light">02 — L'ESPRIT ÉCLAT</p><h2 id="philosophy-title">The beauty<br>of <em>the occasion.</em></h2><p>De finaste stunderna behöver inte vara planerade. De uppstår runt ett bord, i ett samtal och i ett glas som lyfter upplevelsen. Maison Éclat är ett designkoncept inspirerat av den franska champagnekulturen.</p><a href="#journal" class="light-link">Utforska vår journal <span aria-hidden="true">↗</span></a></div></div>
+    </section>
+
+    <section class="section journal" id="journal" aria-labelledby="journal-title">
+      <div class="shell"><div class="section-heading journal-heading"><div><p class="eyebrow">03 — LE JOURNAL</p><h2 id="journal-title">The art of <em>tasting.</em></h2></div><p>Inspiration och kunskap för dig som vill upptäcka mer om aromer, servering och champagne till maten.</p></div>
+        <!-- Artikelkorten länkar till samma HTML-mall med JSON-filens slug som id. -->
+        <div class="journal-grid">
+          <article class="journal-card"><a href="artikel.html?id=valj-ratt-champagneglas"><div class="journal-photo"><img src="images/artikel-valj-ratt-champagneglas.webp" alt="Ljus champagneflaska med vit etikett, fotograferad i varm studiomiljö" loading="lazy"></div><p class="journal-meta">GUIDE <span>·</span> 5 MIN LÄSNING</p><h3>Vilket champagneglas ger bäst smakupplevelse?</h3><span class="article-read">Läs artikeln <span aria-hidden="true">↗</span></span></a></article>
+          <article class="journal-card"><a href="artikel.html?id=upptack-champagnens-aromer"><div class="journal-photo"><img src="images/artikel-upptack-champagnens-aromer.webp" alt="Champagneflaska med gyllene etikett och fina reflexer i studioljuset" loading="lazy"></div><p class="journal-meta">SMAKSKOLA <span>·</span> 4 MIN LÄSNING</p><h3>Upptäck champagnens aromer – från citrus till brioche</h3><span class="article-read">Läs artikeln <span aria-hidden="true">↗</span></span></a></article>
+          <article class="journal-card"><a href="artikel.html?id=champagne-till-maten"><div class="journal-photo"><img src="images/artikel-champagne-till-maten.webp" alt="Roséchampagne med roséguldfärgad etikett på ljust stenbord" loading="lazy"></div><p class="journal-meta">MAT & DRYCK <span>·</span> 6 MIN LÄSNING</p><h3>Champagne till maten: fem kombinationer att upptäcka</h3><span class="article-read">Läs artikeln <span aria-hidden="true">↗</span></span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter" aria-labelledby="newsletter-title"><div class="shell newsletter-grid"><div><p class="eyebrow eyebrow-light">04 — THE PRIVATE LETTER</p><h2 id="newsletter-title">A little more <em>éclat.</em></h2><p>Få en dos inspiration om glas, smaker och eleganta tillfällen. Ett litet nyhetsbrevskoncept för vårt skolprojekt.</p></div><div>
+      <form id="newsletterForm" class="newsletter-form"><label for="email">DIN E-POSTADRESS</label><div class="form-row"><input id="email" type="email" name="email" autocomplete="email" placeholder="namn@exempel.se" required><button type="submit">Registrera <span aria-hidden="true">↗</span></button></div><small>Demo: informationen skickas inte till någon server.</small></form>
+      <div id="formFeedback" class="form-feedback" role="status" aria-live="polite"></div>
+    </div></div></section>
+  </main>
+  <footer class="footer"><div class="shell"><div class="footer-main"><a class="brand footer-brand" href="index.html">MAISON <span>ÉCLAT</span><small>CHAMPAGNE CONCEPT</small></a><p>Crafted for the moments that matter.</p><a href="#main">Tillbaka till toppen ↑</a></div><div class="footer-bottom"><span>© 2026 MAISON ÉCLAT</span><span>FIKTIVT VARUMÄRKE · SKOLPROJEKT</span><span>INSPIRED BY FRENCH ELEGANCE</span></div></div></footer>
+</body>
+</html>
