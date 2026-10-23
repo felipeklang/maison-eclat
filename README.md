@@ -113,4 +113,29 @@ Skapa sedan ett **nytt repository** på GitHub och följ instruktionerna som Git
 
 Lärarens två GitHub Gist-exempel gick **inte att öppna** i projektmiljön vid produktionen. `test-artikel.json` och `artikel.js` är därför **fungerande egna implementationer**, inte ordagranna kopior av lärarens exempel. Jämför dessa två filer med lärarens Gist och anpassa vid behov. Detta måste verifieras för att säkerställa full kravuppfyllelse.
 
-Projektet är ännu **inte publicerat i användarens GitHub-repository**. Även GitHub-delen måste göras innan man hävdar att samtliga VG-krav är klara.
+### GitHub – publicerat projekt
+
+Maison Éclat är publicerat på GitHub:
+
+https://github.com/felipeklang/maison-eclat
+
+Repositoryt är publikt och innehåller webbplatsens HTML-, CSS- och JavaScript-filer, JSON-artiklar, bilder samt AI-instruktioner.
+
+### Genomfört test av AI-automationen
+
+Den 21 oktober 2026 testades det AI-stödda publiceringsflödet genom artikeln **"Så serverar du champagne på rätt sätt"**.
+
+Arbetsflödet genomfördes enligt följande:
+
+1. AI användes för att skapa ett artikelutkast i JSON-format.
+2. Python-skriptet validerade utkastet.
+3. Artikeln publicerades automatiskt som en ny JSON-fil.
+4. En SVG-illustration genererades automatiskt.
+5. Artikeln öppnades via Live Server och kontrollerades visuellt.
+6. Utkastet, artikeln och bilden laddades upp till GitHub.
+
+**Resultat:** Publiceringen fungerade utan att befintliga HTML-, CSS- eller JavaScript-filer behövde ändras.
+
+Testartikel: `artikel.html?id=servera-champagne-test-2026`
+
+Arbetsflödet kombinerar AI-genererat innehåll, automatiserad filhantering och mänsklig kvalitetsgranskning.
