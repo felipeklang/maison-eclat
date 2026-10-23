@@ -111,7 +111,13 @@ Skapa sedan ett **nytt repository** på GitHub och följ instruktionerna som Git
 
 ## Viktig kontroll före inlämning
 
-Lärarens två GitHub Gist-exempel gick **inte att öppna** i projektmiljön vid produktionen. `test-artikel.json` och `artikel.js` är därför **fungerande egna implementationer**, inte ordagranna kopior av lärarens exempel. Jämför dessa två filer med lärarens Gist och anpassa vid behov. Detta måste verifieras för att säkerställa full kravuppfyllelse.
+Lärarens två GitHub Gist-exempel har granskats och jämförts med projektets implementation.
+
+Maison Éclat använder en egen JSON-struktur och JavaScript-implementation som uppfyller motsvarande grundläggande funktioner: URL-parametrar, inläsning av JSON, dynamisk generering av HTML-element, bilder och listor.
+
+Lösningen har funktionstestats med flera artiklar via Live Server. Den är inte en ordagrann kopia av lärarens exempel. Skillnader finns bland annat i namngivningen av JSON-block och hur artikelns rubrik genereras.
+
+Lärarens exempel har inte ändrats. Projektets befintliga lösning har behållits för att bevara det fungerande publiceringsflödet.
 
 ### GitHub – publicerat projekt
 
