@@ -1,42 +1,28 @@
 {
-  "slug": "test-artikel",
-  "title": "Testartikel – så fungerar vår JSON-mall",
-  "description": "Den här testartikeln används för att kontrollera att artikel.html och artikel.js hämtar innehåll ur en separat JSON-fil.",
-  "category": "TEST / TEKNIK",
-  "author": "Maison Éclat",
-  "date": "20 oktober 2026",
-  "image": {
-    "src": "images/brut-reserve.webp",
-    "alt": "Maison Éclat Brut Réserve, en champagneflaska med guldgul etikett"
-  },
-  "content": [
-    {
-      "type": "paragraph",
-      "text": "Detta är ett tekniskt test av artikelmallen. Artikeln hämtas från webbplats/artiklar/test-artikel.json."
-    },
-    {
-      "type": "heading",
-      "text": "Test av mellanrubrik"
-    },
-    {
-      "type": "paragraph",
-      "text": "När du läser denna text har JavaScript använt fetch() för att hämta JSON och skapa HTML-element."
-    },
-    {
-      "type": "subheading",
-      "text": "Test av listor"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Data ligger i en separat JSON-fil.",
-        "Bilder ligger lokalt i images-mappen."
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "Prova att öppna artikel.html?id=test-artikel med Live Server."
-    }
-  ],
-  "sources": []
+    "title": "Testdata - alla blocktyper",
+    "content": [
+        { "type": "h1", "text": "Testdata - alla blocktyper" },
+        { "type": "p", "text": "Det här är ingressen. Den är det första stycket direkt efter huvudrubriken och ska därför visas större och i grått." },
+        { "type": "p", "text": "Det här är ett vanligt stycke brödtext. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+        { "type": "h2", "text": "Underrubrik (h2)" },
+        { "type": "p", "text": "Ett stycke under en h2. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        { "type": "h3", "text": "Mellanrubrik (h3)" },
+        { "type": "p", "text": "Ett stycke under en h3. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        { "type": "h2", "text": "Bilder" },
+        { "type": "img", "src": "images/white-car.png", "alt": "En vit elbil" },
+        { "type": "p", "text": "Ett stycke mellan två bilder." },
+        { "type": "img", "src": "images/car-in-sand.png", "alt": "En elbil som står i sanden" },
+        { "type": "h2", "text": "Punktlista (ul)" },
+        { "type": "ul", "items": [
+            "Första punkten",
+            "Andra punkten",
+            "En längre punkt som bryts över flera rader för att testa hur radavståndet ser ut när texten inte får plats på en rad"
+        ] },
+        { "type": "h2", "text": "Numrerad lista (ol)" },
+        { "type": "ol", "items": [
+            "Steg ett",
+            "Steg två",
+            "Steg tre"
+        ] }
+    ]
 }

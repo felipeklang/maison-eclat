@@ -113,11 +113,9 @@ Skapa sedan ett **nytt repository** på GitHub och följ instruktionerna som Git
 
 Lärarens två GitHub Gist-exempel har granskats och jämförts med projektets implementation.
 
-Maison Éclat använder en egen JSON-struktur och JavaScript-implementation som uppfyller motsvarande grundläggande funktioner: URL-parametrar, inläsning av JSON, dynamisk generering av HTML-element, bilder och listor.
+Artikelmallen använder lärarens ursprungliga `artikel.js` och `test-artikel.json`. Egna artiklar följer samma `title`- och `content`-struktur och sparar den lokala bildens sökväg och alt-text i ett `img`-block.
 
-Lösningen har funktionstestats med flera artiklar via Live Server. Den är inte en ordagrann kopia av lärarens exempel. Skillnader finns bland annat i namngivningen av JSON-block och hur artikelns rubrik genereras.
-
-Lärarens exempel har inte ändrats. Projektets befintliga lösning har behållits för att bevara det fungerande publiceringsflödet.
+Öppna `artikel.html?id=test-artikel` via en lokal server för att prova blocktyperna. Testdatans bilreferenser hör till lärarens exempel. Maison Éclats egna artiklar använder bilder som finns i projektets `images/`.
 
 ### GitHub – publicerat projekt
 

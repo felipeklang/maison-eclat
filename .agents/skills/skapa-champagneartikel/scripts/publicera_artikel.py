@@ -13,30 +13,38 @@ SITE = PROJECT / 'webbplats'
 ARTICLES = SITE / 'artiklar'
 IMAGES = SITE / 'images'
 SLUG = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
-ALLOWED_TYPES = {'heading', 'subheading', 'paragraph', 'quote', 'list', 'image'}
+TEXT_TYPES = {'h1', 'h2', 'h3', 'p'}
 ALLOWED_IMAGES = {'.png', '.jpg', '.jpeg', '.webp', '.svg'}
 
 
-def validate(data, slug):
-    if not isinstance(data, dict):
-        raise ValueError('Utkastet ska vara ett JSON-objekt.')
-    if data.get('slug') not in (None, slug):
-        raise ValueError('Utkastets slug matchar inte det valda filnamnet.')
-    for field, minimum in [('title', 12), ('description', 40), ('category', 3)]:
-        if not isinstance(data.get(field), str) or len(data[field].strip()) < minimum:
-            raise ValueError(f'{field} ska vara minst {minimum} tecken.')
-    if not isinstance(data.get('content'), list) or len(data['content']) < 6:
-        raise ValueError('content ska innehålla minst sex block.')
-    for n, block in enumerate(data['content'], start=1):
-        if not isinstance(block, dict) or block.get('type') not in ALLOWED_TYPES:
-            raise ValueError(f'Felaktig blocktyp i innehållsblock {n}.')
-        if block['type'] == 'list':
-            if not isinstance(block.get('items'), list) or len(block['items']) < 2:
-                raise ValueError(f'Listan i block {n} måste ha minst två punkter.')
-        elif block['type'] != 'image' and not isinstance(block.get('text'), str):
-            raise ValueError(f'Block {n} saknar text.')
-    if not isinstance(data.get('sources', []), list):
-        raise ValueError('sources ska vara en lista.')
+def has_text(value):
+    return isinstance(value, str) and bool(value.strip())
+
+
+def validate(data):
+    if not isinstance(data, dict) or not has_text(data.get('title')):
+        raise ValueError('Utkastet ska ha en titel.')
+    blocks = data.get('content')
+    if not isinstance(blocks, list) or not blocks or not all(isinstance(b, dict) for b in blocks):
+        raise ValueError('content ska vara en lista med innehållsblock.')
+    if blocks[0].get('type') != 'h1' or sum(b.get('type') == 'h1' for b in blocks) != 1:
+        raise ValueError('Artikeln ska börja med en enda h1.')
+    images = []
+    for number, block in enumerate(blocks, start=1):
+        kind = block.get('type')
+        if kind == 'img':
+            if not has_text(block.get('alt')):
+                raise ValueError(f'Bildblock {number} saknar alt-text.')
+            images.append(block)
+        elif kind in ('ul', 'ol'):
+            items = block.get('items')
+            if not isinstance(items, list) or not items or not all(has_text(item) for item in items):
+                raise ValueError(f'Listblock {number} saknar giltiga punkter.')
+        elif not isinstance(kind, str) or kind not in TEXT_TYPES or not has_text(block.get('text')):
+            raise ValueError(f'Ogiltigt textblock {number}.')
+    if len(images) != 1:
+        raise ValueError('Publiceringsskriptet hanterar en bild per artikel.')
+    return images[0]
 
 
 def make_svg(title):
@@ -64,7 +72,7 @@ def main():
             raise ValueError('slug får bara innehålla a-z, siffror och bindestreck.')
         draft = Path(args.utkast).resolve()
         data = json.loads(draft.read_text(encoding='utf-8'))
-        validate(data, args.slug)
+        image_block = validate(data)
         if args.bild:
             image_source = Path(args.bild).resolve()
             if not image_source.is_file() or image_source.suffix.lower() not in ALLOWED_IMAGES:
@@ -79,24 +87,30 @@ def main():
         for destination in (json_dest, image_dest):
             if destination.exists():
                 raise FileExistsError(f'Filen finns redan och skyddas mot överskrivning: {destination.name}')
-        data['slug'] = args.slug
-        data['image'] = {
-            'src': f'images/{image_dest.name}',
-            'alt': data.get('image', {}).get('alt') or f'Bild till artikeln {data["title"]}'
-        }
+        image_block['src'] = f'images/{image_dest.name}'
         if args.kontrollera:
             print(f'OK att publicera: {args.slug}; inga filer ändrades.')
             return
         ARTICLES.mkdir(parents=True, exist_ok=True)
         IMAGES.mkdir(parents=True, exist_ok=True)
-        if image_source:
-            shutil.copyfile(image_source, image_dest)
-        else:
-            image_dest.write_text(make_svg(data['title']), encoding='utf-8')
+        with image_dest.open('xb') as output:
+            try:
+                if image_source:
+                    with image_source.open('rb') as source:
+                        shutil.copyfileobj(source, output)
+                else:
+                    output.write(make_svg(data['title']).encode('utf-8'))
+            except Exception:
+                image_dest.unlink(missing_ok=True)
+                raise
         try:
+            serialized = json.dumps(data, ensure_ascii=False, indent=2) + '\n'
             with json_dest.open('x', encoding='utf-8') as output:
-                json.dump(data, output, ensure_ascii=False, indent=2)
-                output.write('\n')
+                try:
+                    output.write(serialized)
+                except Exception:
+                    json_dest.unlink(missing_ok=True)
+                    raise
         except Exception:
             image_dest.unlink(missing_ok=True)
             raise

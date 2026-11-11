@@ -20,26 +20,19 @@ Använd denna skill när användaren ber om en ny artikel till Maison Éclat. Ar
 
 ```json
 {
-  "slug": "ny-champagneartikel",
-  "title": "En informativ rubrik om champagne",
-  "description": "En konkret ingress på minst fyrtio tecken om vad läsaren får veta.",
-  "category": "GUIDE",
-  "author": "Maison Éclat",
-  "date": "20 oktober 2026",
-  "image": { "alt": "En konkret och beskrivande text om den valda bilden" },
+  "title": "Så väljer du champagneglas",
   "content": [
-    { "type": "paragraph", "text": "Inledning." },
-    { "type": "heading", "text": "Första mellanrubriken" },
-    { "type": "paragraph", "text": "Fördjupning." },
-    { "type": "subheading", "text": "En underrubrik" },
-    { "type": "list", "items": ["Första tipset", "Andra tipset"] },
-    { "type": "paragraph", "text": "Avslutning." }
-  ],
-  "sources": ["Författarens egna redaktionella råd; kontrollera sakpåståenden"]
+    { "type": "h1", "text": "Så väljer du champagneglas" },
+    { "type": "p", "text": "En kort ingress som berättar vad läsaren får veta." },
+    { "type": "img", "src": "images/artikel-valj-champagneglas.webp", "alt": "Två champagneglas med olika kupform på ett dukat bord" },
+    { "type": "h2", "text": "Så påverkar glaset doften" },
+    { "type": "p", "text": "Fördjupning." },
+    { "type": "ul", "items": ["Första tipset", "Andra tipset"] }
+  ]
 }
 ```
 
-Tillåtna blocktyper: `paragraph`, `heading` (blir h2), `subheading` (blir h3), `list`, `quote`, `image`. Endast en h1 per artikelsida: den kommer automatiskt från `title`.
+Använd samma format som `webbplats/artiklar/test-artikel.json`. Börja med ett `h1`-block och använd `p`, `h2`, `h3`, `ul` och `ol` efter behov. Lägg in ett `img`-block med beskrivande alt-text. Publiceringsskriptet sätter `src` till den lokala bildfil det sparar.
 
 ## Körning
 

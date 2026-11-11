@@ -24,9 +24,9 @@ Detta är **bruksanvisningen för AI-agenten**, inte en fil som visas på webbpl
 ## Regler för alla artiklar
 - Varumärket är **fiktivt** – hitta inte på autentiska företagsfakta, priser eller medaljer.
 - Välj ett konkret ämne om champagne och skriv huvudsakligen på svenska.
-- Ge läsaren nytta: praktiska exempel, korrekt rubrikhierarki (h1 från `title`, h2 från `heading`, h3 från `subheading`).
-- JSON ska innehålla `slug`, `title`, `description`, `category`, `author`, `date`, `image.src`, `image.alt` och `content`.
-- Bildvägen ska börja med `images/` och peka på en verklig fil i webbplatsens images-mapp.
+- Ge läsaren nytta: praktiska exempel, korrekt rubrikhierarki (blocktyperna `h1`, `h2`, `h3`).
+- Följ `webbplats/artiklar/test-artikel.json`: JSON har `title` och `content`, med rubriker, stycken och listor som egna block.
+- Lägg bilden i ett `img`-block med `src` och beskrivande `alt`. Publiceringsskriptet sätter en lokal bildväg under `images/`.
 - Slug får endast innehålla gemener a–z, siffror och bindestreck; t.ex. `champagne-till-maten`.
 - Kontrollera sakpåståenden och ange källor där sådana behövs. Följ användarens feedback nästa gång.
 - **AI får aldrig ändra befintliga filer i `webbplats`.** Skriv bara nya artikelfiler och bilder via det skyddade skriptet.

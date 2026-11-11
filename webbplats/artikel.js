@@ -1,115 +1,75 @@
-// Denna artikelmall används av alla JSON-artiklar: artikel.html?id=artikelns-slug.
-// OBS: lärarens externa Gist-exempel behöver fortfarande jämföras med detta format.
-const container = document.querySelector('#artikel');
+// SKA INTE JUSTERAS MED AI
+
+// Det här skriptet bygger upp artikelsidan (artikel.html) utifrån en JSON-fil.
+// Vilken artikel som visas styrs av URL:en. Tex:
+// artikel.html?id=laddning hämtar filen artiklar/laddning.json och skapar ett HTML-element per block i den.
+
+// Läser in parametrarna i URL:en (allt efter "?") så att vi kan plocka ut dem
 const params = new URLSearchParams(window.location.search);
-const slug = params.get('id');
 
-// Mobilmenyn i artikelmallen fungerar på samma sätt som menyn på startsidan.
-const menuToggle = document.querySelector('#menuToggle');
-const menu = document.querySelector('#mainNav');
-menuToggle?.addEventListener('click', () => {
-  const open = menu.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(open));
-  menuToggle.setAttribute('aria-label', open ? 'Stäng menyn' : 'Öppna menyn');
-});
-menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  menu.classList.remove('open');
-  menuToggle.setAttribute('aria-expanded', 'false');
-}));
+// Hämtar värdet på parametern "id", t.ex. "laddning".
+const id = params.get('id');
 
-// Säker DOM-byggare: textContent ser till att JSON-text inte tolkas som körbar HTML.
-function node(tag, className, text) {
-  const element = document.createElement(tag);
-  if (className) element.className = className;
-  if (text !== undefined) element.textContent = String(text);
-  return element;
+// Hämtar elementet i artikel.html som artikelns innehåll ska läggas in i
+const container = document.querySelector('#artikel');
+
+// Skapar ett HTML-element utifrån ett block i JSON-filen.
+// Ett block är ett objekt med en "type" (t.ex. "h2", "p", "img" eller "ul") och det innehåll som hör till den typen.
+function createBlock(block) {
+    // Variabel som ska hålla det element vi skapar
+    let el;
+
+    // if-sats: OM block-typen är "img" går vi in i första delen i if-satsen.
+    // Om block-typen istället är "ul" eller "ol" går vi in i andra delen i if-satsen.
+    // Om inget av ovanstående stämmer hamnar vi i "else"-delen av if-satsen.
+    if (block.type === 'img') {
+        // Bild: skapar ett <img> och sätter bildens sökväg och alt-text.
+        // Saknas alt-text i JSON-filen används en tom sträng.
+        el = document.createElement('img');
+        el.src = block.src;
+        el.alt = block.alt || '';
+    } else if (block.type === 'ul' || block.type === 'ol') {
+        // Lista: skapar en <ul> (punktlista) eller <ol> (numrerad lista)
+        el = document.createElement(block.type);
+
+        // Går igenom varje punkt i "items" och lägger till den som ett <li> i listan
+        block.items.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            el.appendChild(li);
+        });
+    } else {
+        // Allt annat (h1, h2, h3, p osv.): skapar ett element av den typen och sätter dess text.
+        el = document.createElement(block.type);
+        el.textContent = block.text;
+    }
+
+    // Skickar tillbaka det färdiga elementet så att det kan läggas in på sidan
+    return el;
 }
-function safeImage(image) {
-  if (!image || typeof image.src !== 'string' || !/^images\/[a-z0-9-]+\.(?:webp|png|jpg|jpeg|svg)$/i.test(image.src)) return null;
-  const img = node('img');
-  img.src = image.src;
-  img.alt = image.alt || 'Illustration till artikel';
-  img.loading = 'lazy';
-  return img;
-}
-function renderBlock(block, parent) {
-  if (!block || typeof block !== 'object') return;
-  const type = block.type;
-  if (type === 'heading') parent.append(node('h2', '', block.text || ''));
-  else if (type === 'subheading') parent.append(node('h3', '', block.text || ''));
-  else if (type === 'paragraph') parent.append(node('p', '', block.text || ''));
-  else if (type === 'quote') parent.append(node('blockquote', '', block.text || ''));
-  else if (type === 'list' && Array.isArray(block.items)) {
-    const list = node(block.ordered ? 'ol' : 'ul');
-    block.items.forEach(item => list.append(node('li', '', item)));
-    parent.append(list);
-  } else if (type === 'image') {
-    const image = safeImage({ src: block.src, alt: block.alt });
-    if (!image) return;
-    const figure = node('figure');
-    figure.append(image);
-    if (block.caption) figure.append(node('figcaption', '', block.caption));
-    parent.append(figure);
-  }
-}
-function showArticle(data) {
-  if (!data || typeof data.title !== 'string' || !Array.isArray(data.content)) throw new Error('Ogiltig artikeldata');
-  const fragment = document.createDocumentFragment();
-  const header = node('header', 'article-head');
-  header.append(node('p', 'article-category', data.category || 'MAISON ÉCLAT JOURNAL'));
-  header.append(node('h1', '', data.title));
-  if (data.description) header.append(node('p', 'article-deck', data.description));
-  header.append(node('p', 'article-byline', `${data.author || 'Maison Éclat'} · ${data.date || '2026'}`));
-  fragment.append(header);
-  const cover = safeImage(data.image);
-  if (cover) {
-    const figure = node('figure', 'article-figure');
-    figure.append(cover);
-    if (data.image.caption) figure.append(node('figcaption', '', data.image.caption));
-    fragment.append(figure);
-  }
-  const body = node('div', 'article-body');
-  data.content.forEach(block => renderBlock(block, body));
-  if (Array.isArray(data.sources) && data.sources.length) {
-    const sources = node('div', 'article-sources');
-    sources.append(node('strong', '', 'Källor och vidare läsning'));
-    const list = node('ul');
-    data.sources.forEach(item => {
-      const entry = node('li');
-      if (typeof item === 'string') entry.textContent = item;
-      else if (item && /^https:\/\//.test(item.url || '')) {
-        const a = node('a', '', item.name || item.url);
-        a.href = item.url;
-        a.rel = 'noopener noreferrer';
-        a.target = '_blank';
-        entry.append(a);
-      }
-      list.append(entry);
-    });
-    sources.append(list);
-    body.append(sources);
-  }
-  fragment.append(body);
-  container.replaceChildren(fragment);
-  document.title = `${data.title} | Maison Éclat`;
-  const desc = document.querySelector('meta[name="description"]');
-  if (desc && data.description) desc.content = data.description.slice(0, 160);
-}
-function showError(message) {
-  const error = node('div', 'article-error');
-  error.append(node('h1', '', 'Artikeln kunde inte visas'), node('p', '', message));
-  container.replaceChildren(error);
-}
-// Begränsa id till säkra filnamn utan å, ä eller ö. Inga API-nycklar behövs.
-async function loadArticle() {
-  if (!slug || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return showError('Länken saknar ett giltigt artikel-id.');
-  try {
-    const response = await fetch(`artiklar/${slug}.json`);
-    if (!response.ok) throw new Error('Hittar inte filen');
-    const data = await response.json();
-    showArticle(data);
-  } catch (error) {
-    showError('Starta webbplatsen via Live Server i VS Code och kontrollera att artikelns JSON-fil finns i artiklar-mappen.');
-  }
-}
-loadArticle();
+
+
+// Hämtar JSON-filen för artikeln. Backticks (`) gör att ${id}
+// byts ut mot värdet i variabeln, t.ex. artiklar/laddning.json
+fetch(`artiklar/${id}.json`)
+    .then(res => {
+        // res.ok är false om filen inte finns (t.ex. fel 404).
+        // Då kastas ett fel så att vi hoppar direkt till .catch() nedan.
+        if (!res.ok) throw new Error('Artikeln finns inte');
+
+        // Omvandlar svaret från text till ett JavaScript-objekt
+        return res.json();
+    })
+    .then(artikel => {
+        // Sätter sidans titel (det som syns i webbläsarfliken)
+        document.title = artikel.title;
+
+        // Går igenom alla block i "content" i tur och ordning,
+        // skapar ett element för varje block och lägger in det i artikeln
+        artikel.content.forEach(block => {
+            container.appendChild(createBlock(block));
+        });
+    })
+    // Körs om något gick fel: filen finns inte, JSON-filen är felskriven
+    // eller sidan är öppnad utan lokal server
+    .catch(error => console.log(error.message));

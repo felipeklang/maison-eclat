@@ -1,33 +1,36 @@
-
 {
-  "slug": "servera-champagne-test-2026",
   "title": "Så serverar du champagne på rätt sätt",
-  "description": "Lär dig servera champagne med rätt temperatur, passande glas och enkla tips för en trevligare smakupplevelse.",
-  "category": "GUIDE",
-  "author": "Maison Éclat",
-  "date": "21 oktober 2026",
-  "image": {
-    "alt": "Illustration av ett champagneglas med gyllene champagne"
-  },
   "content": [
     {
-      "type": "paragraph",
+      "type": "h1",
+      "text": "Så serverar du champagne på rätt sätt"
+    },
+    {
+      "type": "p",
+      "text": "Lär dig servera champagne med rätt temperatur, passande glas och enkla tips för en trevligare smakupplevelse."
+    },
+    {
+      "type": "img",
+      "alt": "Illustration av ett champagneglas med gyllene champagne"
+    },
+    {
+      "type": "p",
       "text": "Champagne är förknippat med fest och speciella tillfällen. Några enkla serveringstips hjälper dig att njuta av drycken."
     },
     {
-      "type": "heading",
+      "type": "h2",
       "text": "Välj rätt temperatur"
     },
     {
-      "type": "paragraph",
+      "type": "p",
       "text": "Champagne serveras ofta vid ungefär 8 till 10 grader. Vissa mer komplexa champagner kan uppskattas vid en något högre temperatur."
     },
     {
-      "type": "subheading",
+      "type": "h3",
       "text": "Vilket glas passar bäst?"
     },
     {
-      "type": "list",
+      "type": "ul",
       "items": [
         "Ett tulpanformat glas kan framhäva dofterna.",
         "Undvik att fylla glaset ända upp.",
@@ -35,9 +38,8 @@
       ]
     },
     {
-      "type": "paragraph",
+      "type": "p",
       "text": "Prova olika glas och serveringstemperaturer för att upptäcka vad du själv föredrar."
     }
-  ],
-  "sources": []
+  ]
 }
